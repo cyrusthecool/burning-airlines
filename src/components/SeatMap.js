@@ -23,9 +23,13 @@ class Seat extends Component {
     this.checkIfTaken();
   }
 
+  _handleClick = (e) => {
+    console.log( this.props.seatId );
+  }
+
   render() {
     return (
-      <div className={ this.state.isTaken ? "seat taken" : "seat free" }>
+      <div className={ this.state.isTaken ? "seat taken" : "seat free" } onClick={ this._handleClick } >
       </div>
     );
   }
