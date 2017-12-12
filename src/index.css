@@ -16,3 +16,9 @@ body {
 .taken {
   background-color: red;
 }
+
+button {
+  padding: 15px;
+  font-family: Futura, sans-serif;
+  text-transform: uppercase;
+}

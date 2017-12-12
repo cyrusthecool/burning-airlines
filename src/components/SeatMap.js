@@ -78,6 +78,7 @@ class SeatMap extends Component {
             </div>
           ) }
         </div>
+        <p>Selected Seat: { this.state.selectedSeat }</p>
       </div>
     );
   }

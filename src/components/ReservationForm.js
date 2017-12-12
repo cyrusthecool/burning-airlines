@@ -10,7 +10,7 @@ class SubmitComplex extends Component {
   render() {
     return (
       <div>
-        <button onClick={ this.props.onClick }>Book this flight</button>
+        <button onClick={ this.props.onClick }>Book</button>
       </div>
     );
   }
