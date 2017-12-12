@@ -22,7 +22,7 @@ class ReservationForm extends Component {
           console.log('Taken seats on this flight: ', takenSeats);
           this.setState({ takenSeats });
         });
-      setTimeout( fetchFlight, 4000 ); // recursion
+      setTimeout( fetchFlight, 4000 );
     }
     fetchFlight();
   }
@@ -31,7 +31,7 @@ class ReservationForm extends Component {
     return (
       <div>
         <h1>Make a reservation</h1>
-        <SeatMap takenSeats={ this.state.takenSeats } />
+        <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } />
       </div>
     );
   }
