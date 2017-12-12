@@ -43,14 +43,17 @@ class Seat extends Component {
 
 class SeatMap extends Component {
   getSelectedSeat = (s) => {
-    console.log(s);
+    this.setState({
+      selectedSeat: s
+    });
+    this.props.passSeat(s);
   }
 
 
   constructor(props) {
     super(props);
     this.state = {
-
+      selectedSeat: ""
     };
   }
 

@@ -22,6 +22,13 @@ class SubmitComplex extends Component {
 // PARENT
 
 class ReservationForm extends Component {
+  saveSelected = (s) => {
+    this.setState({
+      selectedSeat: s
+    });
+    // console.log(s);
+  }
+
   constructor() {
     super();
     this.state = {
@@ -56,7 +63,7 @@ class ReservationForm extends Component {
       'http://burningairlinesdb.herokuapp.com/reservations',
       {
         reservation: {
-          seat: "C2",
+          seat: this.state.selectedSeat,
           flight_id: this.state.flight.id,
           user_id: this.state.user.id
         }
@@ -77,7 +84,7 @@ class ReservationForm extends Component {
         <h1>Make a reservation</h1>
         <UserInfo userName={ this.state.user.name } />
         <FlightInfo flightNumber={ this.state.flight.number } flightId={ this.state.flight.id } />
-        <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } />
+        <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } passSeat={ this.saveSelected } />
         <SubmitComplex onClick={ this.addNewRes } />
       </div>
     );
