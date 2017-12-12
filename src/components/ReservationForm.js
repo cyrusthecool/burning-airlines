@@ -6,6 +6,19 @@ import UserInfo from './UserInfo';
 import axios from 'axios';
 
 
+class SubmitComplex extends Component {
+  render() {
+    return (
+      <div>
+        <button onClick={ this.props.onClick }>Book this flight</button>
+      </div>
+    );
+  }
+}
+
+
+
+
 // PARENT
 
 class ReservationForm extends Component {
@@ -14,7 +27,8 @@ class ReservationForm extends Component {
     this.state = {
       flight: {},
       user: {},
-      takenSeats: []
+      takenSeats: [],
+      selectedSeat: ""
     };
     const fetchFlight = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 1 }.json`)   // TODO update when component is integrated
@@ -36,6 +50,27 @@ class ReservationForm extends Component {
     fetchUser();
   }
 
+
+  addNewRes = () => {
+    axios.post(
+      'http://burningairlinesdb.herokuapp.com/reservations',
+      {
+        reservation: {
+          seat: "C2",
+          flight_id: this.state.flight.id,
+          user_id: this.state.user.id
+        }
+      }
+    )
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => console.log(error))
+
+
+  }
+
+
   render() {
     return (
       <div>
@@ -43,6 +78,7 @@ class ReservationForm extends Component {
         <UserInfo userName={ this.state.user.name } />
         <FlightInfo flightNumber={ this.state.flight.number } flightId={ this.state.flight.id } />
         <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } />
+        <SubmitComplex onClick={ this.addNewRes } />
       </div>
     );
   }
