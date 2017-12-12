@@ -1,7 +1,7 @@
 import React, { PureComponent as Component } from 'react';
 
 
-// Child SEAT
+// ********** Child SEAT *******************************************************
 
 class Seat extends Component {
   checkIfTaken = () => {
@@ -24,7 +24,8 @@ class Seat extends Component {
   }
 
   _handleClick = (e) => {
-    console.log( this.props.seatId );
+    // console.log( this.props.seatId );
+    this.props.getSelectedSeat( this.props.seatId );
   }
 
   render() {
@@ -37,10 +38,15 @@ class Seat extends Component {
 
 
 
-// Parent SEAT MAP
+// ****************************  Parent SEAT MAP *******************************
 
 
 class SeatMap extends Component {
+  getSelectedSeat = (s) => {
+    console.log(s);
+  }
+
+
   constructor(props) {
     super(props);
     this.state = {
@@ -48,27 +54,22 @@ class SeatMap extends Component {
     };
   }
 
-
-  // parseTakenSeats = ( seats ) => {
-  //   seats.forEach( (s) => {
-  //     const row = s.charCodeAt(0)-64;
-  //     const col = s.substring(1);
-  //   });
-  // }
-
   render() {
-    // this.parseTakenSeats( this.props.takenSeats );
     return (
       <div>
         <h2>Seat Map</h2>
-        {/* <p>{ this.props.takenSeats[0] }</p> */}
         <div className="grid-container" >
           {/* make a row for number of rows */}
           { [...Array(this.props.rows)].map((e, i) =>
             <div className="grid-row" key={i}>
               {/*  make seat re num of cols */}
               { [...Array(this.props.cols)].map((e, j) =>
-                <Seat key={`${String.fromCharCode(i+65)}${j+1}`} seatId={`${String.fromCharCode(i+65)}${j+1}`} takenSeats={ this.props.takenSeats } />
+                <Seat
+                  key={`${String.fromCharCode(i+65)}${j+1}`}
+                  seatId={`${String.fromCharCode(i+65)}${j+1}`}
+                  takenSeats={ this.props.takenSeats }
+                  getSelectedSeat={ this.getSelectedSeat }
+                />
               ) }
             </div>
           ) }
