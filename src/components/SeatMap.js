@@ -58,6 +58,7 @@ class SeatMap extends Component {
     return (
       <div>
         <h2>Seat Map</h2>
+        <p>Please choose an available seat</p>
         <div className="grid-container" >
           {/* make a row for number of rows */}
           { [...Array(this.props.rows)].map((e, i) =>
