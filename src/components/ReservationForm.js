@@ -19,7 +19,7 @@ class ReservationForm extends Component {
         .then( () => {
           const reservations = this.state.flight.reservations.slice();
           const takenSeats = reservations.map(r => r.seat);
-          console.log('Taken seats on this flight: ', takenSeats);
+          // console.log('Taken seats on this flight: ', takenSeats);
           this.setState({ takenSeats });
         });
       setTimeout( fetchFlight, 4000 );
