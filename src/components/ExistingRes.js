@@ -13,7 +13,7 @@ class ExistingRes extends Component {
       console.log(fio);
       return (
         <div>
-          <p>Do you have existing bookings? Here's what we have you booked on:</p>
+          <p>Do you have existing bookings? If you do, a list of them will appear below.</p>
           {fio.map (s=> <p key={s.id}>{s.flight.date} Flight {s.flight.number} - {s.flight.origin} to {s.flight.destination}, Seat {s.seat}</p>
           )}
         </div>

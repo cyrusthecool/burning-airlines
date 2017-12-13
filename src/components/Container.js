@@ -25,7 +25,7 @@ class Container extends Component {
       <div>
         <FlightsSearch storeFlightId={ this.storeFlightId } resetFlightId={ this.resetFlightId } />
 
-        { this.state.flight_id !== '' ? <ReservationForm flightId={ this.state.flight_id } /> : null }
+        { this.state.flight_id !== '' ? <ReservationForm user_id={this.props.user_id} flightId={ this.state.flight_id } /> : null }
         {/* { false ? <ReservationForm flightId={ this.state.flight_id } /> : null } */}
 
       </div>

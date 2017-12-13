@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Container from './Container';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // username: props.location.pathname.substring(1),
+      // user_id: props.user
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -10,7 +17,7 @@ class App extends Component {
           <img src="https://i.imgur.com/HGpVOhb.png" />
         </div>
         <p>Search for a flight right here</p>
-        <Container />
+        <Container user_id={this.props.user_id} />
       </div>
     );
   }
