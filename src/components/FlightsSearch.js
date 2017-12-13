@@ -33,8 +33,10 @@ class SearchForm extends Component{
   }
 
   handleSubmit(event) {
+    console.log('here');
     event.preventDefault();
     this.props.onSubmit(this.state.origin,this.state.destination);
+    this.props.passResetFlightId();
   }
 
   render(){
@@ -117,12 +119,16 @@ class FlightsSearch extends Component{
 
     }
 
+    passResetFlightId = () => {
+      this.props.resetFlightId();
+    }
+
     render() {
       // console.log(typeof(this.state.flights));
         // console.log(this.state.flights);
       return (
         <div>
-          <SearchForm onSubmit = {this.fetchPlanes}/>
+          <SearchForm onSubmit = {this.fetchPlanes} passResetFlightId={ this.passResetFlightId } />
           <DisplayFlightsV2 flights_all={ this.state.flights } passFlightId={ this.saveFlightId } />
         </div>
       );
