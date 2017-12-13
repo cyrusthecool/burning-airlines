@@ -90,7 +90,7 @@ class FlightsSearch extends Component{
       };
       this.fetchPlanes = this.fetchPlanes.bind(this);
     }
-    
+
     saveFlightId = (s) => {
       this.setState({
         flight_id: s

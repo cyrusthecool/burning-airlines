@@ -28,11 +28,10 @@ class ReservationForm extends Component {
     this.setState({
       selectedSeat: s
     });
-    // console.log(s);
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       flight: {},
       user: {},
@@ -40,24 +39,26 @@ class ReservationForm extends Component {
       selectedSeat: "",
       status: ""
     };
-    const fetchFlight = () => {
-      // console.log('Updating live data...');
-      axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 10 }.json`)   // TODO update when component is integrated
-        .then( results => this.setState({ flight: results.data }) )
+    const fetchFlight = (id) => {
+      console.log( id );
+      axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ id }.json`)   // TODO update when component is integrated
+        .then( results => {
+           this.setState({ flight: results.data })
+          })
         .then( () => {
           const reservations = this.state.flight.reservations.slice();
           const takenSeats = reservations.map(r => r.seat);
           // console.log('Taken seats on this flight: ', takenSeats);
           this.setState({ takenSeats });
         });
-      setTimeout( fetchFlight, 4000 );
+      // setTimeout( fetchFlight, 4000 );
     }
     const fetchUser = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/users/${ 7 }.json`)   // TODO update when component is integrated
         .then( results => this.setState({ user: results.data }) );
       setTimeout( fetchUser, 4000 );
     }
-    fetchFlight();
+    fetchFlight( this.props.flightId );
     fetchUser();
   }
 

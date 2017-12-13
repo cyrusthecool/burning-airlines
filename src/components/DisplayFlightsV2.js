@@ -19,6 +19,7 @@ class DisplayFlightsV2 extends Component {
   }
 
   render() {
+    console.log( this.props.flights_all );
     return (
       <div>
         {this.props.flights_all.map (s=>
