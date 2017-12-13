@@ -25,7 +25,7 @@ class DisplayFlightsV2 extends Component {
         {this.props.flights_all.map (s=>
           <p key={s.id}>{s.origin} {s.destination} {s.id} {s.date} {s.name} {s.number}
           <button onClick = { () => { this._handleClick(s.id) } }>
-            {s.id}
+            Book Flight
           </button></p>
         )}
       </div>
