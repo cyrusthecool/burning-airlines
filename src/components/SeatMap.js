@@ -34,12 +34,16 @@ class Seat extends Component {
     this.setState({
       isSelected: true
     });
+
   }
 
   render() {
+    console.log( this.props.selectedSeat );
     return (
       <div className={ this.state.isTaken ? "seat taken" : "seat free" } onClick={ this._handleClick } >
-        {/* { this.state.isSelected ? "X" : null } */}
+        <div className={ this.props.selectedSeat === this.props.seatId ? "selected" : null } >
+
+        </div>
       </div>
     );
   }
@@ -75,6 +79,7 @@ class SeatMap extends Component {
           {/* make a row for number of rows */}
           { [...Array(this.props.rows)].map((e, i) =>
             <div className="grid-row" key={i}>
+              {/* row letter */}
               <span className="row-num">{ String.fromCharCode(i+65) }</span>
               {/*  make seat re num of cols */}
               { [...Array(this.props.cols)].map((e, j) =>
@@ -83,7 +88,7 @@ class SeatMap extends Component {
                   seatId={`${String.fromCharCode(i+65)}${j+1}`}
                   takenSeats={ this.props.takenSeats }
                   getSelectedSeat={ this.getSelectedSeat }
-                  selectedSeat={ this.selectedSeat }
+                  selectedSeat={ this.state.selectedSeat }
                 />
               ) }
             </div>
