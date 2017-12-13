@@ -2,6 +2,7 @@ import React, { PureComponent as Component } from 'react';
 import SeatMap from './SeatMap';
 import FlightInfo from './FlightInfo';
 import UserInfo from './UserInfo';
+import ReservationStatus from './ReservationStatus';
 
 import axios from 'axios';
 
@@ -35,7 +36,8 @@ class ReservationForm extends Component {
       flight: {},
       user: {},
       takenSeats: [],
-      selectedSeat: ""
+      selectedSeat: "",
+      status: ""
     };
     const fetchFlight = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 1 }.json`)   // TODO update when component is integrated
@@ -60,7 +62,7 @@ class ReservationForm extends Component {
 
   addNewRes = () => {
     axios.post(
-      'http://burningairlinesdb.herokuapp.com/reservations',
+      'http://burningairlinesdb.herokuapp.com/reservations.json',
       {
         reservation: {
           seat: this.state.selectedSeat,
@@ -70,9 +72,17 @@ class ReservationForm extends Component {
       }
     )
     .then(response => {
-      console.log(response);
+      // console.log( response.statusText === "Created" ? "Reservation complete. Thank you for choosing Burning." : "" );
+      this.setState({
+        status: response.statusText === "Created" ? "Reservation complete. Thank you for choosing Burning." : ""
+      });
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      // console.log( error.message === "Request failed with status code 422" ? "Sorry, that seat is unavailable." : "" );
+      this.setState({
+        status: error.message === "Request failed with status code 422" ? "Sorry, that seat is unavailable. Please choose an available seat or call 1800 BURNING for assistance." : ""
+      });
+    })
 
 
   }
@@ -86,6 +96,7 @@ class ReservationForm extends Component {
         <FlightInfo flightNumber={ this.state.flight.number } flightId={ this.state.flight.id } />
         <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } passSeat={ this.saveSelected } />
         <SubmitComplex onClick={ this.addNewRes } />
+        <ReservationStatus status={ this.state.status } />
       </div>
     );
   }

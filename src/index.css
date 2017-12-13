@@ -34,3 +34,7 @@ button {
   line-height: 50px;
   vertical-align: top;
 }
+
+.res-status {
+  padding: 15px 0;
+}

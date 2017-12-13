@@ -15,7 +15,8 @@ class Seat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isTaken: false
+      isTaken: false,
+      // isSelected: false
     };
   }
 
@@ -26,11 +27,15 @@ class Seat extends Component {
   _handleClick = (e) => {
     // console.log( this.props.seatId );
     this.props.getSelectedSeat( this.props.seatId );
+    this.setState({
+      isSelected: true
+    });
   }
 
   render() {
     return (
       <div className={ this.state.isTaken ? "seat taken" : "seat free" } onClick={ this._handleClick } >
+        {/* { this.state.isSelected ? "X" : null } */}
       </div>
     );
   }
