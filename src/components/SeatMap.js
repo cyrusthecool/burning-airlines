@@ -66,6 +66,7 @@ class SeatMap extends Component {
           {/* make a row for number of rows */}
           { [...Array(this.props.rows)].map((e, i) =>
             <div className="grid-row" key={i}>
+              <span className="row-num">{ String.fromCharCode(i+65) }</span>
               {/*  make seat re num of cols */}
               { [...Array(this.props.cols)].map((e, j) =>
                 <Seat
@@ -73,6 +74,7 @@ class SeatMap extends Component {
                   seatId={`${String.fromCharCode(i+65)}${j+1}`}
                   takenSeats={ this.props.takenSeats }
                   getSelectedSeat={ this.getSelectedSeat }
+                  selectedSeat={ this.selectedSeat }
                 />
               ) }
             </div>
