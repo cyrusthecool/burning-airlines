@@ -33,7 +33,6 @@ class SearchForm extends Component{
   }
 
   handleSubmit(event) {
-    console.log('here');
     event.preventDefault();
     this.props.onSubmit(this.state.origin,this.state.destination);
     this.props.passResetFlightId();

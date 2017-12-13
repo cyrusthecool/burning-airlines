@@ -1,16 +1,13 @@
 import React, { PureComponent as Component } from 'react';
 
 class ExistingRes extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 
     if (Object.keys(this.props.res).length!== 0){
 
       let fio= this.props.res.reservations;
-      console.log(fio);
+      // console.log(fio);
       return (
         <div>
           <p>Do you have existing bookings? If you do, a list of them will appear below.</p>
@@ -21,7 +18,7 @@ class ExistingRes extends Component {
     }
     else {
 
-      console.log(this);
+      // console.log(this);
       return (
         <div></div>
       )

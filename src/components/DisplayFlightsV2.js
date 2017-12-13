@@ -10,7 +10,7 @@ class DisplayFlightsV2 extends Component {
   }
   _update(flight_id)
   {
-    console.log(flight_id);
+    // console.log(flight_id);
       this.setState({flight_id});
   }
 

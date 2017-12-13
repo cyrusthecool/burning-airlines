@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <div className="header">
           <h1 className="logo">BURNING AIRLINES</h1>
-          <img src="https://i.imgur.com/HGpVOhb.png" />
+          <img src="https://i.imgur.com/HGpVOhb.png" alt="Flames and Death"/>
         </div>
         <p>Search for a flight right here</p>
         <Container user_id={this.props.user_id} />

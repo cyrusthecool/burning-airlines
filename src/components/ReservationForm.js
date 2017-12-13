@@ -33,6 +33,7 @@ class ReservationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      flight_id: props.flightId,
       flight: {},
       user: {},
       takenSeats: [],
@@ -51,15 +52,22 @@ class ReservationForm extends Component {
           // console.log('Taken seats on this flight: ', takenSeats);
           this.setState({ takenSeats });
         });
-      setTimeout( function() { fetchFlight( props.flightId ) }, 3000 );
+      setTimeout( () => { fetchFlight( this.state.flight_id ) }, 1000 );
+      // setTimeout( function() { fetchFlight( this.state.flight_id ) }, 3000 );
     }
     const fetchUser = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/users/${ props.user_id }.json`)
         .then( results => this.setState({ user: results.data }) );
       setTimeout( fetchUser, 3000 );
     }
-    fetchFlight( props.flightId );
+    fetchFlight( this.state.flight_id );
     fetchUser();
+  }
+
+  componentDidUpdate() {
+    this.setState({
+      flight_id: this.props.flightId
+    });
   }
 
 
