@@ -16,6 +16,15 @@ body {
   vertical-align: top;
 }
 
+.login-logo {
+  margin-bottom: 0;
+}
+
+.welcome {
+  margin-bottom: 50px;
+  margin-top: 0;
+}
+
 .App {
   max-width: 960px;
   margin: 0 auto;
@@ -78,13 +87,13 @@ form {
   background-color: #e03844;
 }
 
-input[type="search"] {
+input.search-flight, input.search-user {
   padding: 8px;
   width: 400px;
 }
 
 .monospace {
-  font-family: "Source Sans Pro", monospace;
+  font-family: "Source Code Pro", monospace;
   text-transform: uppercase;
 
 }
@@ -96,4 +105,25 @@ input[type="search"] {
 img {
   width: 200px;
   float: right;
+}
+
+.login-form {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.login-label {
+  display: inline-block;
+  width: 100px;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+}
+
+.login-field {
+  margin: 10px 10px 10px 0;
+  padding: 15px 15px 15px 0;
+}
+
+.login-button {
+  margin-bottom: 15px;
 }

@@ -24,43 +24,28 @@ class Container extends Component {
     });
   }
 
+  clicking(e){
+    e.preventDefault();
+    window.location.href = "http://localhost:3000/home/";
+  }
 
-  // componentWillReceiveProps() {
-  //   // console.log('will receive props');
-  //   // console.log( this.props.flightId );
-  //   this.setState({
-  //     flight_id: this.props.flightId
-  //   });
-  // }
 
   render() {
-
-
-    // if ( this.state.flight_id === '' ) {
-    //   console.log('Init');
-    //   return (
-    //     <div>
-    //       <FlightsSearch storeFlightId={ this.storeFlightId } resetFlightId={ this.resetFlightId } />
-    //       {/* { this.state.flight_id !== '' ? <ReservationForm user_id={this.props.user_id} flightId={ this.state.flight_id } /> : null } */}
-    //     </div>
-    //   );
-    // } else if ( (this.state.flight_id !== '') && (this.state.flight_id !== this.state.prev_flight_id) ) {
-    //   console.log('State present');
-    //   return (
-    //     <div>
-    //       <FlightsSearch storeFlightId={ this.storeFlightId } resetFlightId={ this.resetFlightId } />
-    //       { this.state.flight_id !== '' ? <ReservationForm user_id={this.props.user_id} flightId={ this.state.flight_id } /> : null }
-    //     </div>
-    //   );
-    // } else {
         return (
           <div>
+
+          <form onSubmit = {this.clicking}>
+            <div>
+              <button>
+                Sign Out
+              </button>
+            </div>
+          </form>
+
             <FlightsSearch storeFlightId={ this.storeFlightId } resetFlightId={ this.resetFlightId } />
             { this.state.flight_id !== '' ? <ReservationForm user_id={this.props.user_id} flightId={ this.state.flight_id } /> : null }
           </div>
         );
-    // }
-
 
   }
 }
