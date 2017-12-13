@@ -6,7 +6,7 @@ import DisplayFlightsV2 from './DisplayFlightsV2';
 
 const PlaneURL = 'http://burningairlinesdb.herokuapp.com/flights.json';
 
-
+// ****** Child ***************************************************************
 
 class SearchForm extends Component{
 
@@ -40,15 +40,14 @@ class SearchForm extends Component{
   render(){
     return (
       <form onSubmit={ this.handleSubmit }>
-        <label> Origin:
+        <label className="search"> Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           <input type="search" placeholder="Origin" onInput={ this.handleChange1 }/>
         </label><br />
-
-        <label> Destination:
+        <label className="search"> Destination:&nbsp; &nbsp;
           <input type="search" placeholder="Destination" onInput={ this.handleChange2 }/>
         </label><br />
 
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search" className="res-button" />
       </form>
     );
   }
@@ -78,17 +77,12 @@ class SearchForm extends Component{
 // }
 
 
+// ************ PARENT: FLIGHT SEARCH ******************************************
+
 class FlightsSearch extends Component{
 
-    saveFlightId = (s) => {
-      this.setState({
-        flight_id: s
-      });
-    }
-
-
-    constructor(){
-      super();
+    constructor(props){
+      super(props);
       this.state = {
         flights: [],
         flight_id: ""
@@ -96,6 +90,14 @@ class FlightsSearch extends Component{
       };
       this.fetchPlanes = this.fetchPlanes.bind(this);
     }
+    
+    saveFlightId = (s) => {
+      this.setState({
+        flight_id: s
+      });
+      this.props.storeFlightId(s);
+    }
+
 
 
     fetchPlanes(q1,q2){

@@ -50,3 +50,7 @@ body {
   box-sizing: border-box;
   border: 2px cornflowerblue solid;
 }
+
+label.search {
+  width: 100px;
+}
