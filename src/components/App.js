@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ReservationForm from './ReservationForm';
+import Container from './Container';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Burning Airlines Components Build</h1>
-        <ReservationForm />
+        <h1>Burning Airlines</h1>
+        <Container />
       </div>
     );
   }

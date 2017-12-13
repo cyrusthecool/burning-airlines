@@ -3,6 +3,7 @@ import SeatMap from './SeatMap';
 import FlightInfo from './FlightInfo';
 import UserInfo from './UserInfo';
 import ReservationStatus from './ReservationStatus';
+import ExistingRes from './ExistingRes';
 
 import axios from 'axios';
 
@@ -11,14 +12,14 @@ class SubmitComplex extends Component {
   render() {
     return (
       <div>
-        <button onClick={ this.props.onClick }>Book</button>
+        <button className="res-button" onClick={ this.props.onClick }>Book</button>
       </div>
     );
   }
 }
 
-
-
+// <Display />
+// <ReservationForm className={ ...hidden } flight={ this.state.flight_id } user={ this.state.user_id } } />
 
 // PARENT
 
@@ -41,7 +42,7 @@ class ReservationForm extends Component {
     };
     const fetchFlight = () => {
       // console.log('Updating live data...');
-      axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 1 }.json`)   // TODO update when component is integrated
+      axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 6 }.json`)   // TODO update when component is integrated
         .then( results => this.setState({ flight: results.data }) )
         .then( () => {
           const reservations = this.state.flight.reservations.slice();
@@ -52,7 +53,7 @@ class ReservationForm extends Component {
       setTimeout( fetchFlight, 4000 );
     }
     const fetchUser = () => {
-      axios.get(`http://burningairlinesdb.herokuapp.com/users/${ 1 }.json`)   // TODO update when component is integrated
+      axios.get(`http://burningairlinesdb.herokuapp.com/users/${ 4 }.json`)   // TODO update when component is integrated
         .then( results => this.setState({ user: results.data }) );
       setTimeout( fetchUser, 4000 );
     }
@@ -98,6 +99,7 @@ class ReservationForm extends Component {
         <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } passSeat={ this.saveSelected } />
         <SubmitComplex onClick={ this.addNewRes } />
         <ReservationStatus status={ this.state.status } />
+        <ExistingRes res={ this.state.user } />
       </div>
     );
   }

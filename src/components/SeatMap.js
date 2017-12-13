@@ -38,10 +38,10 @@ class Seat extends Component {
   }
 
   render() {
-    console.log( this.props.selectedSeat );
+    // console.log( this.props.selectedSeat );
     return (
       <div className={ this.state.isTaken ? "seat taken" : "seat free" } onClick={ this._handleClick } >
-        <div className={ this.props.selectedSeat === this.props.seatId ? "selected" : null } >
+        <div className={ this.props.selectedSeat === this.props.seatId && !this.state.isTaken ? "selected" : null } >
 
         </div>
       </div>

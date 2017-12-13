@@ -21,7 +21,7 @@ body {
   background-color: red;
 }
 
-button {
+.res-button {
   padding: 15px;
   font-family: Futura, sans-serif;
   text-transform: uppercase;
