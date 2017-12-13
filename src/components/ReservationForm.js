@@ -40,7 +40,7 @@ class ReservationForm extends Component {
       status: ""
     };
     const fetchFlight = (id) => {
-      console.log( id );
+      // console.log( id );
       axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ id }.json`)   // TODO update when component is integrated
         .then( results => {
            this.setState({ flight: results.data })
@@ -51,14 +51,14 @@ class ReservationForm extends Component {
           // console.log('Taken seats on this flight: ', takenSeats);
           this.setState({ takenSeats });
         });
-      // setTimeout( fetchFlight, 4000 );
+      setTimeout( function() { fetchFlight( props.flightId ) }, 3000 );
     }
     const fetchUser = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/users/${ 7 }.json`)   // TODO update when component is integrated
         .then( results => this.setState({ user: results.data }) );
-      setTimeout( fetchUser, 4000 );
+      setTimeout( fetchUser, 3000 );
     }
-    fetchFlight( this.props.flightId );
+    fetchFlight( props.flightId );
     fetchUser();
   }
 
@@ -100,7 +100,9 @@ class ReservationForm extends Component {
         <SeatMap rows={ this.state.flight.rows } cols={ this.state.flight.cols } takenSeats={ this.state.takenSeats } passSeat={ this.saveSelected } />
         <SubmitComplex onClick={ this.addNewRes } />
         <ReservationStatus status={ this.state.status } />
-        <ExistingRes res={ this.state.user } />
+        {/* <ExistingRes res={ this.state.user } /> */}
+        { this.state.user !== {} ? <ExistingRes res={ this.state.user } /> : null }
+        {/* { this.state.flight_id !== '' ? <ReservationForm flightId={ this.state.flight_id } /> : null } */}
       </div>
     );
   }

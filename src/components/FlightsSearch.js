@@ -42,11 +42,11 @@ class SearchForm extends Component{
   render(){
     return (
       <form onSubmit={ this.handleSubmit }>
-        <label className="search"> Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          <input type="search" placeholder="Origin" onInput={ this.handleChange1 }/>
+        <label className="search"><span className="monospace">Origin: &nbsp; &nbsp; &nbsp;</span>
+          <input type="search" placeholder="Origin, e.g. Lima" onInput={ this.handleChange1 }/>
         </label><br />
-        <label className="search"> Destination:&nbsp; &nbsp;
-          <input type="search" placeholder="Destination" onInput={ this.handleChange2 }/>
+        <label className="search"><span className="monospace">Destination:&nbsp;</span>
+          <input type="search" placeholder="Destination, e.g. New York" onInput={ this.handleChange2 }/>
         </label><br />
 
         <input type="submit" value="Search" className="res-button" />

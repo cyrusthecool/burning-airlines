@@ -5,8 +5,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>BURNING AIRLINES</h1>
-        <p>Search flights:</p>
+        <div className="header">
+          <h1 className="logo">BURNING AIRLINES</h1>
+          <img src="https://i.imgur.com/HGpVOhb.png" />
+        </div>
+        <p>Search for a flight right here</p>
         <Container />
       </div>
     );

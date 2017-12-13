@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
 * {
   /*border: 1px solid pink;*/
 }
+
 
 body {
   margin: 0;
@@ -8,6 +11,15 @@ body {
   font-family: Futura, sans-serif;
 }
 
+.logo {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
 
 .seat {
   background-color: cornflowerblue;
@@ -18,10 +30,11 @@ body {
 }
 
 .taken {
-  background-color: red;
+  background-color: #e03844;
 }
 
 .res-button {
+  margin: 15px 0 0 0;
   padding: 15px;
   font-family: Futura, sans-serif;
   text-transform: uppercase;
@@ -37,6 +50,7 @@ body {
 
 .res-status {
   padding: 15px 0;
+  color: cornflowerblue;
 }
 
 .selected {
@@ -53,4 +67,33 @@ body {
 
 label.search {
   width: 100px;
+}
+
+button.book {
+  margin-left: 20px;
+}
+
+form {
+  padding: 20px;
+  background-color: #e03844;
+}
+
+input[type="search"] {
+  padding: 8px;
+  width: 400px;
+}
+
+.monospace {
+  font-family: "Source Sans Pro", monospace;
+  text-transform: uppercase;
+
+}
+
+.header {
+  height: 100px;
+}
+
+img {
+  width: 200px;
+  float: right;
 }

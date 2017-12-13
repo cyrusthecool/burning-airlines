@@ -4,7 +4,7 @@ import React from 'react';
 function UserInfo (props) {
   return (
     <div>
-      Username: { props.userName }
+      Passenger Name: { props.userName }
     </div>
   );
 }
