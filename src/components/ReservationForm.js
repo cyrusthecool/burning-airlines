@@ -40,6 +40,7 @@ class ReservationForm extends Component {
       status: ""
     };
     const fetchFlight = () => {
+      // console.log('Updating live data...');
       axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ 1 }.json`)   // TODO update when component is integrated
         .then( results => this.setState({ flight: results.data }) )
         .then( () => {

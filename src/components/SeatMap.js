@@ -9,6 +9,10 @@ class Seat extends Component {
       this.setState({
         isTaken: true
       });
+    } else {
+      this.setState({
+        isTaken: false
+      });
     }
   }
 
