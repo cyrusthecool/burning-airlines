@@ -58,7 +58,7 @@ class ReservationForm extends Component {
     const fetchUser = () => {
       axios.get(`http://burningairlinesdb.herokuapp.com/users/${ props.user_id }.json`)
         .then( results => this.setState({ user: results.data }) );
-      setTimeout( fetchUser, 3000 );
+      setTimeout( fetchUser, 1000 );
     }
     fetchFlight( this.state.flight_id );
     fetchUser();
