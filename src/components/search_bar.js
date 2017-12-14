@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import jsonp from 'jsonp-es6';
 import axios from 'axios';
 
-const PlaneURL = 'http://burningairlinesdb.herokuapp.com/flights.json';
+const PlaneURL = 'https://burningairlinesdb.herokuapp.com/flights.json';
 
 class SearchForm extends Component{
 

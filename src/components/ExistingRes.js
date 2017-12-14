@@ -13,7 +13,7 @@ class ExistingRes extends Component {
     // console.log( res_id );
     // console.log(array_res);
 
-    axios.delete(`http://burningairlinesdb.herokuapp.com/reservations/${res_id.id}`).then(
+    axios.delete(`https://burningairlinesdb.herokuapp.com/reservations/${res_id.id}`).then(
         this.setState({
           status: "Reservation successfully cancelled."
         })

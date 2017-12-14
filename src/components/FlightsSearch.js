@@ -3,7 +3,7 @@ import axios from 'axios';
 import DisplayFlightsV2 from './DisplayFlightsV2';
 
 
-const PlaneURL = 'http://burningairlinesdb.herokuapp.com/flights.json';
+const PlaneURL = 'https://burningairlinesdb.herokuapp.com/flights.json';
 
 // ****** Child ***************************************************************
 class SearchForm extends Component{

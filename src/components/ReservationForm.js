@@ -42,7 +42,7 @@ class ReservationForm extends Component {
     };
     const fetchFlight = (id) => {
       // console.log( id );
-      axios.get(`http://burningairlinesdb.herokuapp.com/flights/${ id }.json`)
+      axios.get(`https://burningairlinesdb.herokuapp.com/flights/${ id }.json`)
         .then( results => {
            this.setState({ flight: results.data })
           })
@@ -56,7 +56,7 @@ class ReservationForm extends Component {
       // setTimeout( function() { fetchFlight( this.state.flight_id ) }, 3000 );
     }
     const fetchUser = () => {
-      axios.get(`http://burningairlinesdb.herokuapp.com/users/${ props.user_id }.json`)
+      axios.get(`https://burningairlinesdb.herokuapp.com/users/${ props.user_id }.json`)
         .then( results => this.setState({ user: results.data }) );
       setTimeout( fetchUser, 1000 );
     }
@@ -73,7 +73,7 @@ class ReservationForm extends Component {
 
   addNewRes = () => {
     axios.post(
-      'http://burningairlinesdb.herokuapp.com/reservations.json',
+      'https://burningairlinesdb.herokuapp.com/reservations.json',
       {
         reservation: {
           seat: this.state.selectedSeat,
