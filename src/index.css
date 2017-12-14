@@ -160,3 +160,51 @@ img {
 .cell-logout {
   /*width: 100px;*/
 }
+
+.select-city {
+  width: 400px;
+  padding: 15px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /*appearance: none;*/
+  /*margin: 10px;*/
+  background: white;
+  color: grey;
+  outline: none;
+  border-radius: 0;
+  /*ARROW STYLE*/
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+.select-city:focus {
+  background-image:
+    linear-gradient(45deg, rgba(62, 196, 210, 1.00) 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, rgba(62, 196, 210, 1.00) 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: rgba(62, 196, 210, 1.00);
+  outline: 0;
+}

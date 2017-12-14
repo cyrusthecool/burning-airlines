@@ -1,5 +1,4 @@
 import React, { PureComponent as Component } from 'react';
-// import PropTypes from 'prop-types';
 import axios from 'axios';
 import DisplayFlightsV2 from './DisplayFlightsV2';
 
@@ -7,7 +6,6 @@ import DisplayFlightsV2 from './DisplayFlightsV2';
 const PlaneURL = 'http://burningairlinesdb.herokuapp.com/flights.json';
 
 // ****** Child ***************************************************************
-
 class SearchForm extends Component{
 
   constructor(){
@@ -41,41 +39,33 @@ class SearchForm extends Component{
   render(){
     return (
       <form onSubmit={ this.handleSubmit }>
-        <label className="search"><span className="monospace">Origin: &nbsp; &nbsp; &nbsp;</span>
-          <input type="search" className="search-flight" placeholder="Origin, e.g. Lima" onInput={ this.handleChange1 }/>
+
+        <label className = "search"><span className ="monospace">
+          Origin: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </span>
+          <select value={this.state.origin} onChange = {this.handleChange1} className="select-city">
+            <option value="">Select...</option>
+            <option value="Lima">Lima</option>
+            <option value="New York">New York</option>
+            <option value="Sydney">Sydney</option>
+          </select>
         </label><br />
-        <label className="search"><span className="monospace">Destination:&nbsp;</span>
-          <input type="search" className="search-flight" placeholder="Destination, e.g. New York" onInput={ this.handleChange2 }/>
+
+        <label className = "search"><span className ="monospace">
+          Destination: &nbsp; &nbsp; &nbsp;</span>
+          <select value={this.state.destination} onChange = {this.handleChange2} className="select-city">
+            <option value="">Select...</option>
+            <option value="Lima">Lima</option>
+            <option value="New York">New York</option>
+            <option value="Sydney">Sydney</option>
+          </select>
         </label><br />
+
 
         <input type="submit" value="Search" className="res-button" />
       </form>
     );
   }
 }
-
-
-// flight id
-// user id
-
-//
-// class DisplayFlights extends Component{
-//
-//     debugger;
-//     constructor(props){
-//       super(props);
-//       this.state = {flight: -1,
-//                     user: ""};
-//     }
-//
-//
-//     render(){
-//       return(
-//        <h1>{this.props.flights}</h1>
-//       );
-//
-//     }
-// }
 
 
 // ************ PARENT: FLIGHT SEARCH ******************************************
@@ -87,7 +77,6 @@ class FlightsSearch extends Component{
       this.state = {
         flights: [],
         flight_id: ""
-        // flights_maddi: {}
       };
       this.fetchPlanes = this.fetchPlanes.bind(this);
     }
@@ -109,11 +98,6 @@ class FlightsSearch extends Component{
           if (results.data[i].origin === q1 && results.data[i].destination === q2)
             array_flights.push(results.data[i]);
         this.setState({flights : array_flights});
-
-      // axios.get(PlaneURL).then( results => this.setState({
-      //   flights_maddi: results.data
-      // }));
-
       }.bind(this));
 
     }
@@ -123,8 +107,6 @@ class FlightsSearch extends Component{
     }
 
     render() {
-      // console.log(typeof(this.state.flights));
-        // console.log(this.state.flights);
       return (
         <div>
           <SearchForm onSubmit = {this.fetchPlanes} passResetFlightId={ this.passResetFlightId } />
