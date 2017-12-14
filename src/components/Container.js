@@ -34,11 +34,17 @@ class Container extends Component {
         return (
           <div>
 
-          <form onSubmit = {this.clicking}>
-            <div>
-              <button>
-                Sign Out
-              </button>
+          <form onSubmit = {this.clicking} className="logout">
+            <div className="grid-logout">
+              <div className="cell-logout">
+                <p>Welcome.</p>
+                <p>Search for a flight right here.</p>
+              </div>
+              <div className="cell-logout">
+                <button className="res-button logout-button">
+                  Sign Out
+                </button>
+              </div>
             </div>
           </form>
 

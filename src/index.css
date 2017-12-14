@@ -127,3 +127,36 @@ img {
 .login-button {
   margin-bottom: 15px;
 }
+
+.logout {
+  background-color: white;
+  height: 80px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.logout-button {
+  float: right;
+  background-color: #3ec4d2;
+  color: white;
+  margin-top: 20px;
+}
+
+/*p.search-header {
+    display: inline-block;
+    vertical-align: bottom;
+}*/
+
+.header-flights {
+  height: 130px;
+}
+
+.grid-logout {
+  display: grid;
+  grid-template-columns: 800px 1fr;
+  /*grid-gap: 20px;*/
+}
+
+.cell-logout {
+  /*width: 100px;*/
+}
