@@ -208,3 +208,8 @@ img {
   border-color: rgba(62, 196, 210, 1.00);
   outline: 0;
 }
+
+.flight-span {
+  width: 660px;
+  display: inline-block;
+}
