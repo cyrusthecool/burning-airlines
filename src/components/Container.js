@@ -3,11 +3,12 @@ import FlightsSearch from './FlightsSearch';
 import ReservationForm from './ReservationForm';
 
 class Container extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       flight_id: '',
-      prev_flight_id: ''
+      prev_flight_id: '',
+      username: props.username
     }
   }
 
@@ -37,8 +38,8 @@ class Container extends Component {
           <form onSubmit = {this.clicking} className="logout">
             <div className="grid-logout">
               <div className="cell-logout">
-                <p>Welcome.</p>
-                <p>Search for a flight right here.</p>
+                <p>WELCOME {this.state.username.toUpperCase() }</p>
+                <p>Search for a flight right here</p>
               </div>
               <div className="cell-logout">
                 <button className="res-button logout-button">

@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // username: props.location.pathname.substring(1),
+      username: props.location.pathname.substring(1)
       // user_id: props.user
     }
   }
@@ -17,7 +17,7 @@ class App extends Component {
           <img src="https://i.imgur.com/HGpVOhb.png" alt="Flames and Death"/>
         </div>
         {/* <p>Search for a flight right here</p> */}
-        <Container user_id={this.props.user_id} />
+        <Container user_id={this.props.user_id} username={this.state.username} />
       </div>
     );
   }
