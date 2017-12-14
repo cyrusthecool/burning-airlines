@@ -19,28 +19,29 @@ class SignupForm extends Component{
   }
 
   onSubmit(e){
+    const ghUrl = "https://madeleinemila.github.io/burning-airlines"; // changed from localhost:3000
     e.preventDefault();
     if (this.state.password === "chicken")
     {
         if (this.state.username === "Jose")
         {
-          window.location.href = "http://localhost:3000/#/jose";
+          window.location.href = `${ghUrl}/#/jose`;
         }
 
         if (this.state.username === "Maddi")
         {
-          window.location.href = "http://localhost:3000/#/maddi";
+          window.location.href = `${ghUrl}/#/maddi`;
         }
 
         if (this.state.username === "Craigsy")
         {
-          window.location.href = "http://localhost:3000/#/craigsy";
+          window.location.href = `${ghUrl}/#/craigsy`;
         }
 
     }
 
     else {
-      window.location.href = "http://localhost:3000";
+      window.location.href = ghUrl;
     }
 
   }
