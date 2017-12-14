@@ -1,12 +1,12 @@
 import React, {PureComponent as Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import SignupForm from './SignupForm'
 
 class Home extends Component{
 
   render(){
-    let user_name = "Jose";
-    let url_name = "/"+user_name;
+    // let user_name = "Jose";
+    // let url_name = "/"+user_name;
     return (
       <div className="login-form">
         <h1 className="logo login-logo">BURNING AIRLINES</h1>
