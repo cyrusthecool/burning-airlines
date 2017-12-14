@@ -5,6 +5,8 @@ General Assembly 2 Day Airline Booking System challenge
 
 The task: To build an airline booking system using a front-end framework only recently taught in class (React) and your own Rails API.
 
+2 days, 2 people.
+
 Built with:
 
 - React v16 (this repository)
