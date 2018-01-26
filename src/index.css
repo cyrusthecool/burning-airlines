@@ -12,6 +12,11 @@ body {
   font-family: Futura, sans-serif;
 }
 
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 .logo {
   display: inline-block;
   vertical-align: top;
