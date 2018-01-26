@@ -10,9 +10,6 @@ class ExistingRes extends Component {
   }
 
   _handleClick = (res_id,array_res) => {
-    // console.log( res_id );
-    // console.log(array_res);
-
     axios.delete(`https://burningairlinesdb.herokuapp.com/reservations/${res_id.id}`).then(
         this.setState({
           status: "Reservation successfully cancelled."
@@ -29,12 +26,15 @@ class ExistingRes extends Component {
     if (Object.keys(this.props.res).length!== 0){
 
       let fio= this.props.res.reservations;
-      // console.log(fio);
       if (fio.length > 0){
         return (
           <div>
             <p>MY RESERVATIONS</p>
-            {fio.map (s=> <p key={s.id}><span className="flight-span">{s.flight.date} Flight {s.flight.number} - {s.flight.origin} to {s.flight.destination}, Seat {s.seat}    </span><button className="res-button book" onClick = { () => { this._handleClick(s,fio) } }>Cancel Reservation</button></p>
+            {fio.map (s=>
+              <div key={s.id} className="flex-container">
+                <div className="flight-details">{s.flight.date} Flight {s.flight.number} - {s.flight.origin} to {s.flight.destination}, Seat {s.seat}    </div>
+                <button className="res-button book cancel flex-1" onClick = { () => { this._handleClick(s,fio) } }>Cancel Reservation</button>
+              </div>
 
             )}
             <p className="res-status">{this.state.status}</p>
@@ -49,7 +49,6 @@ class ExistingRes extends Component {
     }
     else {
 
-      // console.log(this);
       return (
         <div>No current reservations</div>
       )

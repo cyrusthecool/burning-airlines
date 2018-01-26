@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   font-family: Futura, sans-serif;
 }
 
@@ -64,7 +64,6 @@ body {
 
 .selected {
   background-color: cornsilk;
-  /* display: inline-block; */
   width: 50px;
   height: 50px;
   z-index: 10;
@@ -130,7 +129,6 @@ img {
 
 .logout {
   background-color: white;
-  height: 80px;
   padding-right: 0;
   padding-left: 0;
 }
@@ -142,23 +140,8 @@ img {
   margin-top: 20px;
 }
 
-/*p.search-header {
-    display: inline-block;
-    vertical-align: bottom;
-}*/
-
 .header-flights {
   height: 130px;
-}
-
-.grid-logout {
-  display: grid;
-  grid-template-columns: 800px 1fr;
-  /*grid-gap: 20px;*/
-}
-
-.cell-logout {
-  /*width: 100px;*/
 }
 
 .select-city {
@@ -169,8 +152,6 @@ img {
   letter-spacing: 1.5px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  /*appearance: none;*/
-  /*margin: 10px;*/
   background: white;
   color: grey;
   outline: none;
@@ -209,7 +190,60 @@ img {
   outline: 0;
 }
 
-.flight-span {
-  width: 660px;
-  display: inline-block;
+.flight-details {
+  flex: 3;
+}
+
+.flex-container {
+  display: flex;
+  margin: 10px 0;
+}
+
+.flex-header {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-logout {
+  flex: 1;
+  align-self: end;
+  margin-bottom: 15px;
+}
+
+.cancel {
+  margin-top: 0;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 650px) {
+    input.search-flight, input.search-user {
+        width: 100%;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 492px) {
+    .select-city {
+        width: 100%;
+        display: block;
+    }
+    h1 {
+      font-size: 1.5em;
+    }
+    h2 {
+      font-size: 1em;
+    }
+    img {
+      width: 115px;
+    }
+}
+
+@media only screen and (max-width: 318px) {
+  .seat {
+    width: 40px;
+    height: 40px;
+  }
 }

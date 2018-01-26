@@ -37,12 +37,12 @@ class Container extends Component {
           <div>
 
           <form onSubmit = {this.clicking} className="logout">
-            <div className="grid-logout">
-              <div className="cell-logout">
+            <div className="flex-header">
+              <div className="flex-1">
                 <p>WELCOME {this.state.username.toUpperCase() }</p>
                 <p>Search for a flight right here</p>
               </div>
-              <div className="cell-logout">
+              <div className="flex-logout">
                 <button className="res-button logout-button">
                   Sign Out
                 </button>
