@@ -2,7 +2,7 @@
 
 General Assembly 2 Day Airline Booking System challenge
 
-![Burning Airlines Quick Demo](https://res.cloudinary.com/mrmy/image/upload/v1517884210/ba-demo_rrmhwj.gif)
+![Burning Airlines Quick Demo](https://res.cloudinary.com/mrmy/image/upload/v1517886258/ba-demo-faster_kpnymb.gif)
 
 The task: To build an airline booking system using a front-end framework only recently taught in class (React) and your own Rails API.
 
