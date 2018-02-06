@@ -1,6 +1,6 @@
 # Burning Airlines
 
-General Assembly 2 Day Airline Booking System challenge
+General Assembly's 2 Day Airline Booking System challenge
 
 ![Burning Airlines Quick Demo](https://res.cloudinary.com/mrmy/image/upload/v1517886258/ba-demo-faster_kpnymb.gif)
 
